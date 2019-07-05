@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXCheckBox?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="580.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ControllerHome">
+    <children>
+        <Label fx:id="label" layoutX="132.0" layoutY="120.0" minHeight="16" minWidth="69" />
+      <Label layoutX="101.0" layoutY="14.0" text="Predicción de movimiento (Kalman Lineal)" textFill="#0c92cf">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <JFXTextField fx:id="posInicialX" layoutX="75.0" layoutY="168.0" prefHeight="31.0" prefWidth="126.0" promptText="Pos inicial en X" />
+      <Label layoutX="43.0" layoutY="173.0" text="X:">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="23.0" layoutY="78.0" text="Ingreso de variables">
+         <font>
+            <Font name="System Bold Italic" size="15.0" />
+         </font>
+      </Label>
+      <Separator layoutX="94.0" layoutY="52.0" prefWidth="400.0" />
+      <JFXTextField fx:id="posInicialY" layoutX="75.0" layoutY="219.0" prefHeight="31.0" prefWidth="126.0" promptText="Pos inicial en Y" />
+      <Label layoutX="43.0" layoutY="224.0" text="Y:">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
+      <JFXTextField fx:id="velInicialX" layoutX="75.0" layoutY="269.0" prefHeight="31.0" prefWidth="126.0" promptText="Vel inicial en X" />
+      <Label layoutX="43.0" layoutY="274.0" text="X°:">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
+      <JFXTextField fx:id="velInicialY" layoutX="75.0" layoutY="326.0" prefHeight="31.0" prefWidth="126.0" promptText="Vel inicial en Y" />
+      <Label layoutX="43.0" layoutY="331.0" text="Y°:">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
+      <JFXTextField fx:id="ruidoPos" layoutX="413.0" layoutY="131.0" prefHeight="31.0" prefWidth="142.0" promptText="Inserte ruido de pos" />
+      <Label layoutX="281.0" layoutY="136.0" text="Ruido posición:">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
+      <JFXTextField fx:id="ruidoVel" layoutX="413.0" layoutY="183.0" prefHeight="31.0" prefWidth="142.0" promptText="Inserte ruido de vel" />
+      <Label layoutX="281.0" layoutY="188.0" text="Ruido velocidad:">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
+      <Separator layoutX="19.0" layoutY="106.0" prefWidth="150.0" />
+      <Label fx:id="version" layoutX="531.0" layoutY="542.0" onMouseClicked="#version" text="V. 1.1.0">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Label>
+      <JFXTextField fx:id="numTiempos" layoutX="387.0" layoutY="249.0" prefHeight="31.0" prefWidth="168.0" promptText="Fases en el tiempo" />
+      <Label layoutX="281.0" layoutY="254.0" text="No. tiempos:">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
+      <JFXTextField fx:id="numPredicciones" layoutX="413.0" layoutY="306.0" prefHeight="31.0" prefWidth="142.0" promptText="No. de líneas" />
+      <Label layoutX="281.0" layoutY="311.0" text="No. predicciones:">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
+      <Separator layoutX="243.0" layoutY="239.0" prefWidth="300.0" />
+      <Separator layoutX="237.0" layoutY="131.0" orientation="VERTICAL" prefHeight="330.0" />
+      <JFXTextField fx:id="observadorX" layoutX="413.0" layoutY="388.0" prefHeight="31.0" prefWidth="142.0" promptText="Pos inicial en X" />
+      <Label layoutX="281.0" layoutY="393.0" text="Observador en X:">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
+      <JFXTextField fx:id="observadorY" layoutX="413.0" layoutY="441.0" prefHeight="31.0" prefWidth="142.0" promptText="Pos inicial en Y" />
+      <Label layoutX="281.0" layoutY="446.0" text="Observador en Y:">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
+      <JFXButton fx:id="botonPredecir" defaultButton="true" layoutX="248.0" layoutY="509.0" onAction="#iniciarPrediccion" ripplerFill="RED" style="-fx-border-color: #4d4d4d; -fx-border-radius: 10px;" text="PREDECIR" textAlignment="CENTER" textFill="#da3030">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <Separator layoutX="243.0" layoutY="368.0" prefWidth="300.0" />
+      <JFXCheckBox fx:id="cbShowTables" checkedColor="#138fa4" layoutX="43.0" layoutY="468.0" selected="true" text="Mostrar Tablas">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </JFXCheckBox>
+      <JFXCheckBox fx:id="cbShowGraph" checkedColor="#138fa4" layoutX="43.0" layoutY="418.0" selected="true" text="Mostrar Gráfica">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </JFXCheckBox>
+    </children>
+</AnchorPane>
